@@ -1,0 +1,28 @@
+# 隐私与密钥（绝不上传）
+.env
+.env.*
+*.key
+credentials.*
+serviceAccount*.json
+firebase-adminsdk*.json
+
+# 受访者原始数据备份（含潜在隐私，本地保留即可）
+data-backup/
+*.原始数据.json
+
+# 课题申请书等含个人信息的原始文档
+申请书内容.txt
+*申请书*.doc
+*申请书*.docx
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+*.tmp
+~$*
+
+# Obsidian 本地配置（笔记内容保留，配置不上传）
+.obsidian/workspace*
+.obsidian/cache
