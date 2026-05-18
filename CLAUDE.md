@@ -32,9 +32,12 @@
 
 | 数据类型 | 存放位置 |
 |---------|---------|
-| 问卷网页 HTML/CSS/JS、报告草稿 | **GitHub** |
+| 问卷网页 HTML/CSS/JS、报告草稿 | **GitHub**（本仓库） |
 | 受访者提交的问卷数据 | **Firebase**（去标识化） |
-| 研究进展、决策日志、文献笔记 | **Obsidian**（本仓库 `研究日志/` 文件夹） |
+| 研究进展、决策日志、文献笔记 | **Obsidian** vault：`E:\SynologyDrive\2ndbrain\吴慧课题\` |
+
+> ⚠️ 研究日志在 Obsidian vault 里，**不在本 Git 仓库**（三个家各取所需）。
+> Claude 更新日志时请直接读写 `E:\SynologyDrive\2ndbrain\吴慧课题\` 下的文件。
 
 ## 关键纪律
 
@@ -58,6 +61,7 @@
 
 ## 相关文档
 
-- 操作指南：`课题研究者项目指南-吴慧版.md`
-- 研究进展：`研究日志/研究进展日志.md`
-- 踩坑记录：`研究日志/踩坑记录.md`
+- 操作指南：`课题研究者项目指南-吴慧版.md`（本仓库）
+- 研究进展：`E:\SynologyDrive\2ndbrain\吴慧课题\研究进展日志.md`（Obsidian）
+- 踩坑记录：`E:\SynologyDrive\2ndbrain\吴慧课题\踩坑记录.md`（Obsidian）
+- 决策日志：`E:\SynologyDrive\2ndbrain\吴慧课题\决策日志.md`（Obsidian）
