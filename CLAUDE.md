@@ -40,8 +40,8 @@
 
 | 数据类型 | 存放位置 |
 |---------|---------|
-| 问卷网页 HTML/CSS/JS、报告草稿 | **GitHub**（本仓库） |
-| 受访者提交的问卷数据 | **Firebase**（去标识化） |
+| 问卷/访谈设计稿、报告草稿、问卷网页（仅作离线预览参考） | **GitHub**（本仓库） |
+| 受访者填答与发放收集 | **问卷星**（去标识化）—— 因 Firebase/GitHub Pages 国内访问不稳定，2026-05-19 改用问卷星 |
 | 研究进展、决策日志、文献笔记 | **Obsidian** vault：`E:\SynologyDrive\2ndbrain\吴慧课题\` |
 
 > ⚠️ 研究日志在 Obsidian vault 里，**不在本 Git 仓库**（三个家各取所需）。
@@ -60,12 +60,12 @@
 |------|------|---------|
 | 2026.04 | 文献检索 | Obsidian + Claude |
 | 2026.05 | 培训调查员 | GitHub + Obsidian |
-| 2026.06 | 现场调查 | Firebase + GitHub Pages |
+| 2026.06 | 现场调查 | 问卷星（扫码填答） |
 | 2026.07 | 资料整理 | Claude + Obsidian |
 | 2026.08 | 数据处理 | Claude + Obsidian |
 | 2026.09 | 资料分析 | Claude + Obsidian |
 | 2026.10 | 撰写报告 | Claude + GitHub |
-| 2026.11 | 研讨会 | GitHub Pages + Obsidian |
+| 2026.11 | 研讨会 | Claude + Obsidian |
 
 ## 相关文档
 
