@@ -8,7 +8,7 @@
 - **结束工作**：对 Claude 说「**收工**」→ 自动更新研究进展日志 + commit + push
 - **加新工具**：对 Claude 说「我想做一个 XXX 工具」
 
-开工/收工由全局 Skill 处理（`~/.claude/skills/startup`、`shutdown`）。
+开工/收工由全局 Skill 处理（`~/.claude/skills/startup`、`~/.claude/skills/shutdown`）。
 
 ## 课题基本信息
 
