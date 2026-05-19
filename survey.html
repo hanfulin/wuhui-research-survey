@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>公立医院科研经费包干制落地情况调查问卷</title>
+<style>
+  :root{
+    --c-primary:#1f5fa8; --c-primary-d:#17467d; --c-bg:#f4f6f9;
+    --c-card:#fff; --c-border:#dde3ea; --c-text:#1f2933; --c-muted:#6b7280;
+    --c-warn:#b45309; --radius:10px;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--c-bg);color:var(--c-text);line-height:1.65;font-size:16px}
+  .wrap{max-width:680px;margin:0 auto;padding:16px 14px 64px}
+  header.bar{background:var(--c-primary);color:#fff;padding:14px 16px;text-align:center;font-size:16px;font-weight:600;
+    position:sticky;top:0;z-index:10}
+  .progress{height:4px;background:#cdd7e3}
+  .progress > i{display:block;height:100%;width:0;background:var(--c-primary);transition:width .3s}
+  .card{background:var(--c-card);border:1px solid var(--c-border);border-radius:var(--radius);
+    padding:18px 16px;margin:16px 0}
+  h1{font-size:19px;margin:.2em 0 .6em}
+  h2{font-size:17px;color:var(--c-primary-d);margin:1.4em 0 .4em;border-left:4px solid var(--c-primary);padding-left:10px}
+  .muted{color:var(--c-muted);font-size:14px}
+  .q{margin:20px 0;padding-top:4px}
+  .q-title{font-weight:600;margin-bottom:10px}
+  .q-title .code{color:var(--c-muted);font-weight:400;font-size:13px;margin-right:6px}
+  .q-note{font-size:13px;color:var(--c-muted);margin:-4px 0 10px}
+  .opt{display:flex;align-items:flex-start;gap:10px;padding:11px 12px;border:1px solid var(--c-border);
+    border-radius:8px;margin:8px 0;cursor:pointer;background:#fafbfc}
+  .opt:hover{border-color:var(--c-primary)}
+  .opt.sel{border-color:var(--c-primary);background:#eaf2fb}
+  .opt input{margin-top:3px;flex:none;width:18px;height:18px;accent-color:var(--c-primary)}
+  .opt span{flex:1}
+  .scale{display:flex;gap:6px;margin-top:6px}
+  .scale label{flex:1;text-align:center;border:1px solid var(--c-border);border-radius:8px;padding:10px 2px;
+    cursor:pointer;font-size:14px;background:#fafbfc}
+  .scale label.sel{border-color:var(--c-primary);background:#eaf2fb;color:var(--c-primary-d);font-weight:600}
+  .scale input{display:none}
+  .scale .n{display:block;font-size:18px;font-weight:600}
+  .scale-ends{display:flex;justify-content:space-between;font-size:12px;color:var(--c-muted);margin-top:4px}
+  textarea,input[type=text]{width:100%;border:1px solid var(--c-border);border-radius:8px;padding:10px;
+    font-size:15px;font-family:inherit;margin-top:6px}
+  textarea{min-height:74px;resize:vertical}
+  .otherbox{margin-top:8px;display:none}
+  .otherbox.show{display:block}
+  button{font-family:inherit;font-size:16px;border:none;border-radius:8px;padding:13px 20px;cursor:pointer}
+  .btn-primary{background:var(--c-primary);color:#fff;width:100%;font-weight:600}
+  .btn-primary:disabled{background:#9bb4cf;cursor:not-allowed}
+  .btn-ghost{background:#eef1f5;color:var(--c-text)}
+  .nav{display:flex;gap:12px;margin-top:24px}
+  .nav .btn-ghost{flex:none;width:96px}
+  .nav .btn-primary{flex:1}
+  .consent-check{display:flex;gap:10px;align-items:flex-start;background:#eaf2fb;border:1px solid var(--c-primary);
+    border-radius:8px;padding:13px;margin-top:16px;cursor:pointer}
+  .consent-check input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--c-primary)}
+  .err{color:#c0392b;font-size:14px;margin-top:8px;display:none}
+  .err.show{display:block}
+  .hidden{display:none}
+  .done{text-align:center;padding:40px 16px}
+  .done .tick{font-size:54px;color:var(--c-primary)}
+  ul.points{padding-left:20px;font-size:14px;color:var(--c-muted)}
+  ul.points li{margin:5px 0}
+  .badge{display:inline-block;background:#eaf2fb;color:var(--c-primary-d);font-size:12px;
+    border-radius:5px;padding:2px 7px;margin-left:6px}
+</style>
+</head>
+<body>
+<div class="progress"><i id="progbar"></i></div>
+<header class="bar">科研经费包干制落地情况调查</header>
+<div class="wrap">
+
+  <!-- ===== 第 0 屏：知情同意 ===== -->
+  <section id="screen-consent" class="card">
+    <h1>知情同意书</h1>
+    <p>尊敬的老师/同事：</p>
+    <p>您好！我们正在开展 <strong>2026 年江苏省卫生健康经济管理研究课题《基于内部控制视角的公立医院科研经费包干制落地研究》</strong>（课题单位：南通大学附属医院；负责人：吴慧）。本问卷旨在了解我院科研经费"包干制"的落地现状与内部控制需求，为优化管理制度提供依据。</p>
+    <p>诚邀您参与本次匿名调查。在开始前，请您了解：</p>
+    <ul class="points" style="color:var(--c-text)">
+      <li><strong>匿名与保密</strong>：本问卷<strong>全程匿名</strong>，<strong>不</strong>采集姓名、工号、手机号、身份证号或具体科室名称等任何可识别个人身份的信息，仅采集岗位类别、职称区间、工作年限区间等背景信息用于分组分析。</li>
+      <li><strong>数据用途</strong>：仅用于本课题统计分析与研究报告，不作其他用途，不与个人绩效、考核、评优挂钩，以汇总形式呈现。</li>
+      <li><strong>数据存储</strong>：经去标识化后存储于受控数据库，仅课题组成员可访问，研究结束后按规定保存或销毁。</li>
+      <li><strong>自愿参与</strong>：完全自愿，可拒答任一题目，可随时退出，不产生任何不利影响。</li>
+      <li><strong>预计用时</strong>：约 5–8 分钟。</li>
+    </ul>
+    <label class="consent-check" for="consent">
+      <input type="checkbox" id="consent" />
+      <span><strong>我已阅读并理解上述说明，自愿参与本次匿名问卷调查。</strong></span>
+    </label>
+    <div class="err" id="err-consent">请先勾选同意，方可进入问卷。不同意可直接关闭页面。</div>
+    <div class="nav"><button class="btn-primary" id="btn-start">开始填写</button></div>
+  </section>
+
+  <!-- ===== 问卷主体（动态渲染） ===== -->
+  <form id="survey-form" class="hidden">
+    <section id="screen-q" class="card"></section>
+    <div class="err" id="err-q">本页有必答题未完成，请检查后再继续。</div>
+    <div class="nav">
+      <button type="button" class="btn-ghost" id="btn-prev">上一步</button>
+      <button type="button" class="btn-primary" id="btn-next">下一步</button>
+    </div>
+    <p class="muted" style="text-align:center;margin-top:14px">第 <span id="pageno">1</span> / <span id="pagetotal">5</span> 部分 · 您可随时关闭页面退出</p>
+  </form>
+
+  <!-- ===== 完成屏 ===== -->
+  <section id="screen-done" class="card hidden">
+    <div class="done">
+      <div class="tick">✓</div>
+      <h1>提交成功，感谢您的参与！</h1>
+      <p class="muted">您的回答已匿名记录，将仅用于本课题研究分析。</p>
+      <p class="muted" id="done-extra"></p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+/* =======================================================================
+   Firebase 配置（去标识化数据写入 Firestore）
+   —— 部署前把下方占位替换为课题组 Firebase 项目实际配置。
+   —— 未配置时自动降级为"本地导出 JSON"，便于评审/测试。
+   —— 全卷不采集姓名/工号/手机号/科室，符合课题去标识化纪律。
+   ======================================================================= */
+var FIREBASE_CONFIG = {
+  apiKey: "PLACEHOLDER_API_KEY",
+  authDomain: "PLACEHOLDER.firebaseapp.com",
+  projectId: "PLACEHOLDER_PROJECT_ID",
+  storageBucket: "PLACEHOLDER.appspot.com",
+  messagingSenderId: "PLACEHOLDER",
+  appId: "PLACEHOLDER_APP_ID"
+};
+var FIRESTORE_COLLECTION = "survey_responses";
+function firebaseConfigured(){ return FIREBASE_CONFIG.projectId.indexOf("PLACEHOLDER") === -1; }
+
+/* ============================ 问卷题库 ============================ */
+var LIKERT = ["完全不符合","较不符合","一般","较符合","完全符合"];
+
+// type: single | multi | scale | text ;  required 默认 true（开放题与选填除外）
+var COMMON_BG = {title:"一、背景信息（去标识化）", qs:[
+  {id:"t1",type:"single",title:"您所在的岗位类别",note:"此题用于自动分流到对应卷",
+   opts:["科研人员（项目负责人/课题组成员）","科研管理部门人员","财务/审计部门人员","其他"]},
+  {id:"t2",type:"single",title:"您的职称/职级区间",
+   opts:["初级及以下","中级","副高","正高","管理岗（不设职称）"]},
+  {id:"t3",type:"single",title:"您从事本岗位工作年限",
+   opts:["3 年及以下","4–10 年","11–20 年","20 年以上"]},
+  {id:"t4",type:"single",title:"近三年您是否参与过实行“包干制”的科研项目",
+   opts:["是，作为负责人","是，作为参与者/经办","否，但了解相关流程","否，且不了解"]}
+]};
+var COMMON_POLICY = {title:"二、政策认知与落地现状", qs:[
+  {id:"t5",type:"scale",title:"我清楚了解科研经费“包干制”的具体政策要求（如哪些项目可包干、可自主使用的范围）。"},
+  {id:"t6",type:"scale",title:"我所在医院已出台与包干制配套的院内管理规定（如经费使用范围、责任、惩戒）。"},
+  {id:"t7",type:"single",title:"您认为本院包干制目前的落地程度",
+   opts:["已全面落地执行","部分项目试行","有政策但实际仍按旧办法","尚未落地","不清楚"]},
+  {id:"t8",type:"scale",title:"包干制相关政策中“鼓励”“建议”等表述较多，导致实际操作时不确定“能不能这样做”。"},
+  {id:"t9",type:"multi",title:"您认为本院包干制落地的主要障碍（可多选）",
+   opts:["院内配套制度缺失","各部门理解不一致","信息系统不支持","担心审计追责","职能部门不愿放权","科研人员不会用/不敢用"],other:true}
+]};
+var SEC_A = {title:"三、科研人员部分", qs:[
+  {id:"a1",type:"scale",title:"实行包干制后，我对经费使用拥有实质性的自主决定权（而非仍需层层审批）。"},
+  {id:"a2",type:"scale",title:"经费报销流程仍然繁琐，占用了我较多科研时间。"},
+  {id:"a3",type:"single",title:"您的科研经费支出在项目周期内的分布更接近",
+   opts:["均匀使用","前松后紧","平时很少用、结题前突击使用","说不清"]},
+  {id:"a4",type:"multi",title:"平时不愿/不敢使用经费的原因（可多选）",
+   opts:["临床工作忙无暇处理","不清楚哪些能报","担心报销被退回","担心事后审计问责","结余可留用所以先不花","不存在此情况"]},
+  {id:"a5",type:"scale",title:"我清楚知道哪些经费使用行为是“红线”（绝对禁止）。"},
+  {id:"a6",type:"scale",title:"如果有一份清晰的“负面清单”（明确不能做什么），我会更敢于行使经费自主权。"},
+  {id:"a7",type:"text",title:"您在经费使用中最希望得到明确规定的事项是？",note:"例如：哪些设备/劳务/咨询费可列支（选填）",required:false},
+  {id:"a8",type:"single",title:"您的项目是否配有科研财务助理",
+   opts:["有且有效","有但作用有限","没有","不知道"]},
+  {id:"a9",type:"scale",title:"现有信息系统能方便地让我查询本项目经费余额与执行进度。"},
+  {id:"a10",type:"text",title:"为让包干制“放得开、用得好”，您最希望医院提供的支持是？",required:false}
+]};
+var SEC_B = {title:"三、科研管理人员部分", qs:[
+  {id:"b1",type:"scale",title:"包干制下，“哪些该放、哪些该管”在本院有明确的制度界定。"},
+  {id:"b2",type:"scale",title:"包干制在一定程度上削弱了科研管理部门的管理权限，部门内对完全放权存在顾虑。"},
+  {id:"b3",type:"single",title:"本院科研项目经费的主管归口情况",
+   opts:["科研部门统一归口管理","按经费来源由不同部门分头管理","无明确归口","不清楚"]},
+  {id:"b4",type:"scale",title:"实施类项目与科研类项目的管理界限在本院是清晰的。"},
+  {id:"b5",type:"single",title:"本院是否定期（至少每年一次）对科研经费领域开展风险评估并形成书面报告",
+   opts:["是","否","不清楚"]},
+  {id:"b6",type:"multi",title:"您认为科研项目全生命周期中风险最高的环节（最多选 3 项）",
+   opts:["申报","立项","执行","结题","成果转化"],max:3},
+  {id:"b7",type:"scale",title:"本院对科研项目存在“重立项轻结题、重两头轻中间”、缺过程动态监管的现象。"},
+  {id:"b8",type:"scale",title:"本院对科研经费审批已明确“分级授权”（不同金额/事项对应不同审批层级）。"},
+  {id:"b9",type:"text",title:"您认为科研经费审批权限应如何分级（按金额/事项类型/项目类别）最合理？",required:false}
+]};
+var SEC_C = {title:"三、财务/审计人员部分", qs:[
+  {id:"c1",type:"scale",title:"本院科研经费业务中，预算编制与审核、审批与实施、资金使用与付款审核等不相容岗位已相互分离。"},
+  {id:"c2",type:"single",title:"包干制项目经费调剂的实际控制方式",
+   opts:["仍需履行调剂审批","负责人自主调剂、财务备案","完全无约束","不清楚"]},
+  {id:"c3",type:"scale",title:"科研试剂耗材采购环节存在控制薄弱、缺乏整体监管的情况。"},
+  {id:"c4",type:"scale",title:"本院存在结题不结账、大额结余长期挂账的情况。"},
+  {id:"c5",type:"single",title:"包干制项目预算控制采用的方式",
+   opts:["总量+科目刚性控制","刚性+柔性（提醒/百分比）结合","基本无系统控制","不清楚"]},
+  {id:"c6",type:"scale",title:"本院财务、科研、采购等系统已实现互联互通（非信息孤岛）。"},
+  {id:"c7",type:"scale",title:"控制规则已嵌入信息系统、实现“内控前置”实时控制（而非事后人工把关）。"},
+  {id:"c8",type:"single",title:"内审对科研经费的介入方式",
+   opts:["事前+事中+事后全流程","仅事后审计","基本未专项介入","不清楚"]},
+  {id:"c9",type:"text",title:"从财务/审计角度，您认为本院包干制落地最需优先补强的控制环节是？",required:false}
+]};
+var SEC_END = {title:"四、共用结尾", qs:[
+  {id:"e1",type:"scale",title:"总体而言，我认为本院科研经费包干制做到了“自主权接得住、管得好”。"},
+  {id:"e2",type:"text",title:"对本院科研经费包干制落地，您还有哪些意见或建议？（选填）",required:false},
+  {id:"e3",type:"single",title:"您是否愿意接受后续匿名访谈以进一步说明",
+   opts:["愿意（届时另行匿名联络，访谈数据与本问卷分离存储）","不愿意"]}
+]};
+
+/* T1 分流：① 科研人员→A ② 管理→B ③ 财务审计→C ④ 其他→仅通用+结尾 */
+function buildPages(t1Index){
+  var branch = null;
+  if(t1Index===0) branch = SEC_A;
+  else if(t1Index===1) branch = SEC_B;
+  else if(t1Index===2) branch = SEC_C;
+  var pages = [COMMON_BG, COMMON_POLICY];
+  if(branch) pages.push(branch);
+  pages.push(SEC_END);
+  return pages;
+}
+
+/* ============================ 状态与渲染 ============================ */
+var answers = {};            // { qid: value }  value: string|array|number
+var pages = [COMMON_BG, COMMON_POLICY, SEC_A, SEC_END]; // 占位，选完 T1 后重建
+var pageIdx = 0;
+
+var elConsent = document.getElementById('screen-consent');
+var elForm = document.getElementById('survey-form');
+var elQ = document.getElementById('screen-q');
+var elDone = document.getElementById('screen-done');
+var errQ = document.getElementById('err-q');
+
+document.getElementById('btn-start').addEventListener('click', function(){
+  if(!document.getElementById('consent').checked){
+    document.getElementById('err-consent').classList.add('show'); return;
+  }
+  elConsent.classList.add('hidden');
+  elForm.classList.remove('hidden');
+  renderPage();
+});
+
+function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML;}
+
+function renderPage(){
+  var page = pages[pageIdx];
+  document.getElementById('pageno').textContent = pageIdx+1;
+  document.getElementById('pagetotal').textContent = pages.length;
+  document.getElementById('progbar').style.width = ((pageIdx)/pages.length*100)+'%';
+  var html = '<h2>'+esc(page.title)+'</h2>';
+  page.qs.forEach(function(q){ html += renderQ(q); });
+  elQ.innerHTML = html;
+  bindQ(page);
+  document.getElementById('btn-prev').style.visibility = pageIdx===0 ? 'hidden':'visible';
+  document.getElementById('btn-next').textContent = pageIdx===pages.length-1 ? '提交问卷':'下一步';
+  errQ.classList.remove('show');
+  window.scrollTo(0,0);
+}
+
+function renderQ(q){
+  var req = q.required===false ? '' : ' <span class="badge">必答</span>';
+  var h = '<div class="q" data-qid="'+q.id+'"><div class="q-title"><span class="code">'+q.id.toUpperCase()+'</span>'+esc(q.title)+req+'</div>';
+  if(q.note) h += '<div class="q-note">'+esc(q.note)+'</div>';
+  if(q.type==='scale'){
+    h += '<div class="scale">';
+    for(var i=1;i<=5;i++){
+      var sel = answers[q.id]==i?' sel':'';
+      h += '<label class="sc'+sel+'" data-v="'+i+'"><input type="radio" name="'+q.id+'" value="'+i+'"><span class="n">'+i+'</span>'+esc(LIKERT[i-1])+'</label>';
+    }
+    h += '</div><div class="scale-ends"><span>完全不符合</span><span>完全符合</span></div>';
+  } else if(q.type==='single'){
+    q.opts.forEach(function(o,i){
+      var sel = answers[q.id]===String(i)?' sel':'';
+      h += '<label class="opt'+sel+'" data-v="'+i+'"><input type="radio" name="'+q.id+'" value="'+i+'"><span>'+esc(o)+'</span></label>';
+    });
+  } else if(q.type==='multi'){
+    var cur = answers[q.id]||[];
+    q.opts.forEach(function(o,i){
+      var sel = cur.indexOf(String(i))>-1?' sel':'';
+      h += '<label class="opt'+sel+'" data-v="'+i+'"><input type="checkbox" name="'+q.id+'" value="'+i+'"><span>'+esc(o)+'</span></label>';
+    });
+    if(q.max) h += '<div class="q-note">最多选 '+q.max+' 项</div>';
+    if(q.other){
+      var oc = answers[q.id+'_other']||'';
+      h += '<div class="otherbox'+(oc?' show':'')+'" id="ob-'+q.id+'"><input type="text" id="oi-'+q.id+'" placeholder="其他（请填写）" value="'+esc(oc)+'"></div>';
+      h += '<label class="opt" data-v="__other" data-other="'+q.id+'"><input type="checkbox"><span>其他（请在上方填写）</span></label>';
+    }
+  } else if(q.type==='text'){
+    var v = answers[q.id]||'';
+    h += '<textarea data-qid="'+q.id+'" placeholder="请输入...">'+esc(v)+'</textarea>';
+  }
+  return h+'</div>';
+}
+
+function bindQ(page){
+  // 单选 / 量表
+  elQ.querySelectorAll('label.opt, label.sc').forEach(function(lab){
+    lab.addEventListener('click', function(e){
+      e.preventDefault(); // 阻止 label→input 默认行为，避免合成 click 二次触发导致状态抵消
+      var qWrap = lab.closest('.q'); var qid = qWrap.getAttribute('data-qid');
+      var q = page.qs.filter(function(x){return x.id===qid;})[0];
+      if(q.type==='single'){
+        answers[qid] = lab.getAttribute('data-v');
+        qWrap.querySelectorAll('label.opt').forEach(function(x){x.classList.remove('sel');var xi=x.querySelector('input');if(xi)xi.checked=false;});
+        lab.classList.add('sel');
+        var inp=lab.querySelector('input'); if(inp) inp.checked=true;
+      } else if(q.type==='scale'){
+        answers[qid] = parseInt(lab.getAttribute('data-v'),10);
+        qWrap.querySelectorAll('label.sc').forEach(function(x){x.classList.remove('sel');});
+        lab.classList.add('sel');
+      } else if(q.type==='multi'){
+        var v = lab.getAttribute('data-v');
+        if(v==='__other'){
+          var qq = lab.getAttribute('data-other');
+          var box = document.getElementById('ob-'+qq);
+          var on = !lab.classList.contains('sel');
+          lab.classList.toggle('sel',on);
+          var ocb=lab.querySelector('input'); if(ocb) ocb.checked=on;
+          box.classList.toggle('show',on);
+          if(!on){ answers[qq+'_other']=''; var oi=document.getElementById('oi-'+qq); if(oi) oi.value=''; }
+          return;
+        }
+        var arr = answers[qid]||[];
+        var idx = arr.indexOf(v);
+        var cb = lab.querySelector('input');
+        if(idx>-1){ arr.splice(idx,1); lab.classList.remove('sel'); if(cb) cb.checked=false; }
+        else {
+          if(q.max && arr.length>=q.max){ return; }
+          arr.push(v); lab.classList.add('sel'); if(cb) cb.checked=true;
+        }
+        answers[qid]=arr;
+      }
+    });
+  });
+  // 开放题
+  elQ.querySelectorAll('textarea[data-qid]').forEach(function(t){
+    t.addEventListener('input', function(){ answers[t.getAttribute('data-qid')] = t.value.trim(); });
+  });
+  // 多选-其他文本
+  elQ.querySelectorAll('input[id^="oi-"]').forEach(function(t){
+    t.addEventListener('input', function(){ answers[t.id.replace('oi-','')+'_other'] = t.value.trim(); });
+  });
+}
+
+function validatePage(){
+  var page = pages[pageIdx];
+  for(var i=0;i<page.qs.length;i++){
+    var q = page.qs[i];
+    if(q.required===false) continue;
+    var v = answers[q.id];
+    if(q.type==='multi'){ if(!v || v.length===0) return q; }
+    else if(q.type==='scale'){ if(!v) return q; }
+    else { if(v===undefined||v===null||v==='') return q; }
+  }
+  return null;
+}
+
+document.getElementById('btn-prev').addEventListener('click', function(){
+  if(pageIdx>0){ pageIdx--; rebuildIfNeeded(); renderPage(); }
+});
+document.getElementById('btn-next').addEventListener('click', function(){
+  var bad = validatePage();
+  if(bad){ errQ.classList.add('show');
+    var el = elQ.querySelector('[data-qid="'+bad.id+'"]'); if(el) el.scrollIntoView({behavior:'smooth',block:'center'});
+    return; }
+  // 第 1 页（背景）填完后，依 T1 重建后续页
+  if(pageIdx===0){ pages = buildPages(parseInt(answers['t1'],10)); }
+  if(pageIdx < pages.length-1){ pageIdx++; renderPage(); }
+  else { submit(); }
+});
+
+function rebuildIfNeeded(){
+  if(answers['t1']!==undefined){ pages = buildPages(parseInt(answers['t1'],10)); }
+}
+
+/* ============================ 提交 ============================ */
+function buildPayload(){
+  return {
+    survey:"wuhui-baoganzhi-2026",
+    schema_version:2,
+    submitted_at:new Date().toISOString(),
+    answers:answers
+  };
+}
+
+function submit(){
+  document.getElementById('btn-next').disabled = true;
+  document.getElementById('progbar').style.width = '100%';
+  var payload = buildPayload();
+  if(firebaseConfigured()){
+    saveToFirestore(payload).then(finish).catch(function(e){
+      console.error(e);
+      alert('提交遇到网络问题，请检查网络后重试。');
+      document.getElementById('btn-next').disabled = false;
+    });
+  } else {
+    console.warn('[Firebase 未配置] 降级为本地导出，便于评审/测试。', payload);
+    downloadJSON(payload);
+    finish(true);
+  }
+}
+
+function saveToFirestore(payload){
+  return import('https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js').then(function(appMod){
+    return import('https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js').then(function(fs){
+      var app = appMod.initializeApp(FIREBASE_CONFIG);
+      var db = fs.getFirestore(app);
+      return fs.addDoc(fs.collection(db, FIRESTORE_COLLECTION), payload);
+    });
+  });
+}
+
+function downloadJSON(payload){
+  try{
+    var blob = new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
+    var a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download='survey_'+Date.now()+'.json';
+    a.click();
+  }catch(e){ console.error(e); }
+}
+
+function finish(local){
+  elForm.classList.add('hidden');
+  elDone.classList.remove('hidden');
+  if(local){
+    document.getElementById('done-extra').textContent =
+      '（当前为测试模式：Firebase 未配置，回答已导出为本地 JSON 文件）';
+  }
+  window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
