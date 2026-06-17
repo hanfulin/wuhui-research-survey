@@ -52,3 +52,6 @@ desktop.ini
 
 # Claude Code 本地配置/工作树（永不上传）
 .claude/
+
+# /code-review 本地输出（评审过程件，非课题成果）
+review_results/
